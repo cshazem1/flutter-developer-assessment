@@ -1,7 +1,18 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'exercises/exercise_1_room_card.dart';
+import 'exercises/exercise_2_room_list_bloc.dart';
+import 'exercises/exercise_3_room_screen_mini.dart';
+import 'exercises/exercise_5_performance_analysis.dart';
 
 void main() {
-  runApp(const AssessmentApp());
+  runApp(DevicePreview(
+
+      enabled: !kReleaseMode,
+
+      builder:(context) =>  const AssessmentApp()));
 }
 
 class AssessmentApp extends StatelessWidget {
@@ -9,13 +20,19 @@ class AssessmentApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'UTD Software — Flutter Assessment',
-      theme: ThemeData(
-        colorSchemeSeed: const Color(0xFF32e5ac),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'UTD Software — Flutter Assessment',
+        theme: ThemeData(
+          colorSchemeSeed: const Color(0xFF32e5ac),
+          useMaterial3: true,
+        ),
+        home: RoomScreenMini(roomId: 1,),
       ),
-      home: const AssessmentHomePage(),
     );
   }
 }
