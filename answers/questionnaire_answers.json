@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-27T17:31:13.308Z",
+    "assessment_version": "1.0",
+    "company": "UTD Software"
+  },
+  "about_you": {
+    "full_name": "Hazem Mahmoud Mohamed",
+    "email": "hazem.mahmoud.m1@gmail.com",
+    "github_username": "cshazem1",
+    "flutter_experience": "2-3",
+    "total_dev_experience": "1-3"
+  },
+  "skills_self_assessment": {
+    "bloc_flutter_bloc": 4,
+    "clean_architecture": 5,
+    "firebase": 5,
+    "cicd_devops": 5,
+    "testing": 4,
+    "realtime_websocket": 4,
+    "performance_devtools": 4
+  },
+  "technical_knowledge": {
+    "q8_complex_feature": "The most complex Flutter feature I built was in the Evcozmo app, an electric vehicle charging platform. Users needed to see all nearby charging stations on a map with real-time status (working/offline) and battery consumption estimates based on distance calculations. The challenge was massive performance issues when loading 500+ markers across a 100km radius, causing lag and memory issues.\n\nI implemented marker clustering (500 markers → 20 clusters), lazy loading for stations within the user's current viewport, and optimized distance/battery calculations using Streams instead of synchronous loops. The solution used cached battery range icons (5 states) and WebSocket updates for live station status, achieving instant loading and smooth zooming even on low-end devices.",
+    "q9_stateful_vs_bloc": "StatefulWidget when:\n\nSimple animations (controllers, timers)\n\nForm inputs (TextEditingController)\n\nLocal toggles (show/hide menu, loading spinner)\n\nScroll controllers or focus management\n\nBLoC when:\n\nNetwork calls (API data, loading/error states)\n\nShared state (user profile, cart, chat messages)\n\nComplex business logic (calculations, validations)\n\nMultiple screens need same data\n\nExample from Evcozmo:\n\ntext\nStatefulWidget: Map camera controller + zoom animation\nBLoC: Charging stations list + distance calculations + real-time status\nRule: If state is UI-specific and local → StatefulWidget. If it's business data or shared → BLoC. This keeps code simple, performant, and testable.",
+    "q10_code_output": "4\ntrue\n\nlist1 and list2 point to the same list, so adding to list2 also affects list1, and identical is true.",
+    "q11_bloc_bug": "Problem: Second emit(state + 1) doesn't work because state is not updated yet.\n\nAfter first emit: state = 1 (UI shows 1)\nSecond emit: state + 1 = 1 + 1 = 2 (but BLoC ignores it)\n\nadd this await Future.microtask(() {});",
+    "q12_const_sizedbox": "const SizedBox() creates a single reusable object that Flutter can skip rebuilding, while SizedBox() creates a new object every build, which can trigger unnecessary rebuilds.",
+    "q13_friday_bug": "Assess & reproduce the bug – identify if the issue is in Flutter widgets, state management, or API integration.\nNotify the team immediately – even if it’s Friday evening, a critical production bug affecting users must be addressed immediately; we cannot wait until Sunday.\nQuick fix or rollback – patch the Flutter code, apply a hotfix, or revert the last deployment to stop user impact.\nTest & deploy the fix – verify the Flutter app works correctly and push the update safely.\nMonitor & document – track logs, crashes, and write a post-mortem to prevent similar issues in the future."
+  },
+  "how_you_work": {
+    "q14_architecture_disagreement": "Once, I received a feature request that was very vague. Instead of guessing, I scheduled a short meeting with the product manager to clarify expectations and acceptance criteria. I then documented the requirements in a concise way for the team. This avoided miscommunication and reduced rework. The feature was delivered smoothly and met the stakeholders’ needs.",
+    "q15_staying_current": "I keep up-to-date by reading Flutter and Dart official release notes, following key community blogs, and participating in Flutter-focused forums I also experiment with new packages and patterns in side projects to understand their practical impact.",
+    "q16_code_review": "My approach to code review is collaborative and focused on quality. I look for correctness, readability, maintainability, and adherence to best practices. I also check for performance issues, unnecessary rebuilds in Flutter, and proper use of widgets. A good PR is one that is well-scoped, easy to understand, includes meaningful commit messages, and has clear testing for new functionality. I aim to give constructive feedback and also learn from others’ code patterns.",
+    "q17_ai_usage": "I used AI tools like ChatGPT and Claude to clarify concepts, get guidance on debugging steps, and explore Flutter best practices while completing this assessment. I did not let AI write the main solutions for me; instead, I used it to speed up understanding, verify approaches, and refine explanations before implementing them myself."
+  },
+  "submissions": {
+    "q18_video_url": "https://www.youtube.com/watch?reload=9&v=NOIMG8PRriU",
+    "q19_github_repo_url": "https://github.com/cshazem1/flutter-developer-assessment",
+    "q20_anything_else": "Thank you for the assessment. I’m curious if there’s feedback available on the debugging exercise specifically, such as what areas you focus on most when evaluating DevTools usage and problem-solving approach."
+  }
+}
